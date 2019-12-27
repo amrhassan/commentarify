@@ -36,7 +36,7 @@ echo "Processing..."
 
 
 ffmpeg \
-	-v panic \
+	-v error \
 	-i "$MOVIE" \
 	-i "$COMMENTARY_AUDIO" \
 	-filter_complex "[0:$MOVIE_AUDIO_TRACK_ID]pan=stereo|FL=FC+0.30FL+0.30BL|FR=FC+0.30FR+0.30BR[a00];\
@@ -51,4 +51,6 @@ ffmpeg \
 	-c:a:0 libvorbis -q:a:0 10.0 -metadata:s:a:0 title=$COMMENTARY_TITLE \
 	"$OUTPUT"
 
-echo "Done!"
+if [ $? -eq 0 ]; then
+	echo "Done!"
+fi
