@@ -1,17 +1,27 @@
 #! env bash
 
-set -o errexit
-set -o pipefail
-set -o nounset
-# set -o xtrace
+# Mux-in a commentary track to your favorite movie.
 
-
+# The path to the movie file
 MOVIE=""
-COMMENTARY_DELAY=""
+
+# The ID of the movie audio track to mix with the commentary track
 MOVIE_AUDIO_TRACK_ID=""
+
+# The ID of the movie audio track to mix with the commentary track
 COMMENTARY_AUDIO=""
+
+# The path to the output movie file
 OUTPUT=""
-COMMENTARY_TITLE=""
+
+# The desired delay of the commentary track (in ms)
+COMMENTARY_DELAY="0"
+
+# The desired title of the commentary track
+COMMENTARY_TITLE="Commentary"
+
+
+set -o nounset
 
 ffmpeg \
 	-i "$MOVIE" \
