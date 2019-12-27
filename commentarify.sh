@@ -43,7 +43,7 @@ ffmpeg \
 					 [1:a:0]adelay=$COMMENTARY_DELAY|$COMMENTARY_DELAY[a10];\
 					 [a00][a10]amix=inputs=2:duration=first:weights=0.1 0.9[a2]" \
 	-map "[a2]" \
-	-map "0:v" \
+	-map "0:v:0" \
 	-map "0:a" \
 	-map "0:s?" \
 	-map "0:d?" \
